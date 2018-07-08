@@ -4,13 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.ycraighead.swoosh.Utils.EXTRA_LEAGUE
+import com.example.ycraighead.swoosh.Model.Player
 import com.example.ycraighead.swoosh.R
+import com.example.ycraighead.swoosh.Utils.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_league.*
 
 class LeagueActivity : BaseActivity() {
 
-    var selectedLeague =""
+    var player = Player( "", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +19,9 @@ class LeagueActivity : BaseActivity() {
     }
 
     fun leagueNextClicked (view: View){
-        if (selectedLeague != ""){
+        if (player.league != ""){
             val skillIntent = Intent(this, SkillActivity::class.java)
-            skillIntent.putExtra(EXTRA_LEAGUE, selectedLeague)
+            skillIntent.putExtra(EXTRA_PLAYER, player)
 
             startActivity(skillIntent)
         } else {
@@ -29,19 +30,19 @@ class LeagueActivity : BaseActivity() {
     }
 
     fun onMensClicked (view: View){
-        selectedLeague = "Mens"
+        player.league = "Mens"
 
         womensBtn.isChecked = false
         coedBtn.isChecked = false
     }
     fun onWomensClicked (view: View){
-        selectedLeague = "Womens"
+        player.league = "Womens"
 
         mensBtn.isChecked = false
         coedBtn.isChecked = false
     }
     fun onCoedClicked (view: View){
-        selectedLeague = "Coed"
+        player.league = "Coed"
 
         mensBtn.isChecked = false
         womensBtn.isChecked = false
