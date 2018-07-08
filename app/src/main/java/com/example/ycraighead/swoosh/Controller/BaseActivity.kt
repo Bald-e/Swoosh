@@ -1,4 +1,4 @@
-package com.example.ycraighead.swoosh
+package com.example.ycraighead.swoosh.Controller
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
